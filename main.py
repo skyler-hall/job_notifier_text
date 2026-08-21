@@ -17,7 +17,7 @@ text = data.decode("utf-8")
 lines = text.splitlines()
 job_lines = []
 for line in lines:
-    if "[" in line:
+    if "[" in line and line.strip().startswith("|"):
         job_lines.append(line)
 
 print(len(job_lines))
