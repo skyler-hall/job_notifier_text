@@ -22,3 +22,7 @@ for line in lines:
 
 print(len(job_lines))
 print(job_lines[0])
+
+parts = job_lines[0].split("|")
+print(len(parts))
+print(parts)
