@@ -29,16 +29,16 @@ for category in parts:
     info.append(category.strip().strip("*"))
 print(info)
 
-test = "[Marshall+Sterling](https://www.marshallsterling.com/)"
-open_bracket = test.find("[")
-close_bracket = test.find("]")
-print(open_bracket)
-print(close_bracket)
 
-company_name = test[open_bracket + 1 : close_bracket]
-print(company_name)
+def extract_name_and_link(raw_field):
+    open_bracket = raw_field.find("[")
+    close_bracket = raw_field.find("]")
+    company_name = raw_field[open_bracket + 1 : close_bracket]
+    open_paren = raw_field.find("(")
+    close_paren = raw_field.find(")")
+    url = raw_field[open_paren + 1 : close_paren]
+    return company_name, url
 
-open_paren = test.find("(")
-close_paren = test.find(")")
-url = test[open_paren + 1 : close_paren]
-print(url)
+name, link = extract_name_and_link(info[2])
+print(name)
+print(link)
