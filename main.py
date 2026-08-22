@@ -24,5 +24,21 @@ print(len(job_lines))
 print(job_lines[0])
 
 parts = job_lines[0].split("|")
-print(len(parts))
-print(parts)
+info = []
+for category in parts:
+    info.append(category.strip().strip("*"))
+print(info)
+
+test = "[Marshall+Sterling](https://www.marshallsterling.com/)"
+open_bracket = test.find("[")
+close_bracket = test.find("]")
+print(open_bracket)
+print(close_bracket)
+
+company_name = test[open_bracket + 1 : close_bracket]
+print(company_name)
+
+open_paren = test.find("(")
+close_paren = test.find(")")
+url = test[open_paren + 1 : close_paren]
+print(url)
