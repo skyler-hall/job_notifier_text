@@ -20,14 +20,15 @@ for line in lines:
     if "[" in line and line.strip().startswith("|"):
         job_lines.append(line)
 
-print(len(job_lines))
-print(job_lines[0])
 
-parts = job_lines[0].split("|")
-info = []
-for category in parts:
-    info.append(category.strip().strip("*"))
-print(info)
+
+all_jobs = []
+for job_row in job_lines:
+    parts = job_row.split("|")
+    info = []
+    for category in parts:
+        info.append(category.strip().strip("*"))
+    all_jobs.append(info)
 
 
 def extract_name_and_link(raw_field):
@@ -39,6 +40,6 @@ def extract_name_and_link(raw_field):
     url = raw_field[open_paren + 1 : close_paren]
     return company_name, url
 
-name, link = extract_name_and_link(info[2])
-print(name)
-print(link)
+
+print(len(all_jobs))
+print(all_jobs[0])
